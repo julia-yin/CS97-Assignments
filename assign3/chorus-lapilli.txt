@@ -1,0 +1,70 @@
+1. Certain properties in the Game method's state shouldn't be changed
+   with each handleClick function call. For example, if a piece is
+   being moved, the xIsNext property shouldn't switch to the opposite
+   piece on the first click of that process.
+   a. xIsNext: changes only if a new piece is being put on the board
+      or if a piece has finally been moved
+   b. symbolCountX (new): keeps track of the total number of 'X' pieces
+      on the current board, increments only when new pieces are placed
+   c. symbolCount0 (new): same as symbolCountX
+   d. currentSymbol (new): stores the current symbol being either 'X' or
+      '0', same as xIsNext where it changes either when a new piece is 
+      placed or if a piece is done being moved
+   e. secondStep (new): tracks the progress of a piece being moved, set
+      to true only when a piece has been selected to be moved
+   f. moveThisSquare (new): tracks the position of a piece selected to
+      be moved, stores the i value so when handleClick is called again
+      to select the destination, it can be accessed
+2. Write a helper function called countSymbol that counts the number of
+   appearances of a certain symbol within a Board.
+   a. Should be implemented with a for loop that accesses all the Squares
+      in the board and checks which symbol is stored.
+   b. Returns the count of that symbol.
+3. Write a helper function called isAdjacent that determines if two
+   positions in the board, passed in as their i values, are adjacent
+   either vertically, horizontally, or diagonally.
+   a. Should be implemented similarly to calculateWinner where a 2D
+      array stores the possible valid combinations of squares.
+   b. Returns true if the two input positions are adjacent (valid)
+4. Implement the possibilities of an empty (null) square being clicked.
+   a. If there are 3 or more of the current piece on the Board and
+      a new piece is being introduced, immediately return and do nothing.
+   b. If a piece is being moved but the destination selected isn't
+      adjacent to the previous position, immediately return and do nothing.
+   c. If a piece is in the middle of being moved, update the status of
+      the current square and set currentSymbol and xIsNext to their
+      respective opposites. Set the previous square to null and secondStep
+      to false so that the piece is fully moved.
+   d. If there are less than 3 of the current symbol on the Board and no
+      piece is in the middle of being moved, fill the Square with a new
+      piece and set currentSymbol and xIsNext to their opposites.
+      Increment the symbol counters as well.
+5. Check that if there are less than 3 occurrances of the current symbol
+   and a new piece isn't being introduced (clicked on a non-empty Square),
+   immediately return and do nothing.
+6. Check that if the square contains the opposite symbol than the current,
+   immediately return and do nothing.
+7. Implement the process of moving a piece when a Square with the current
+   symbol is clicked.
+   a. Save the current i value into moveThisSquare so it can be accessed
+   b. Set secondStep to true as a piece is being moved.
+   c. Set only the secondStep and moveThisSquare properties of Game and
+      return immediately.
+8. Within the encompassing setState function call at the end of handleClick,
+   update the properties listed in step 1 to their variable values declared
+   and modified within the handleClick function.
+9. Allow for the game to work with time travel by adding the symbol counters
+   to the jumpTo method. After setting current to the new step, count
+   the symbols and modify the symbol counters in Game's state.
+10.Implement the second rule of the game where if the center square is
+   filled and there are three or more of the current symbol on the Board,
+   it must be vacated or a game-winning move must be made in that player's
+   next turn.
+   a. Add a variable vacateCenter to handleClick that is set to true if
+      the center Square is filled with the current symbol
+   b. If vacateCenter is true and no new pieces may be introduced, a piece
+      must moved. If the piece being moved isn't the center piece and no
+      winning move is made, reset the move (set secondStep to false) and
+      immediately return.
+   c. If a new piece is being introduced, check if it is a winning move.
+      If it isn't a winning move, do nothing and immediately return. 

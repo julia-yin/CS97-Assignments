@@ -1,0 +1,103 @@
+1. Create Square prop "value" within the square button, and
+   modify renderSquare within the Board class to pass in a
+   value to display.
+2. Add a click alert to the Square button that alerts when a
+   square is clicked, use arrow function syntax for this and
+   remember the () => to make sure alert only goes off when
+   clicked.
+3. Create the Square's state by adding a constructor to the
+   Square class and initializing the state value within it.
+   a. Constructors must always call super(props); at the start
+   b. Use this.____ to refer to the class's properties
+4. Change the Square render to display the state instead of the
+   value, and change the onClick function to set the state to a
+   value of 'X'
+   a. Reformat the button to have className and onClick on
+      separate lines for easier reading
+5. Maintain the states of all the squares in the parent component
+   (Board) using an array
+   a. Add a constructor to the Board to set the initial state to
+      include the array of square states (null initially)
+6. Modify renderSquare so it passes down the values stored in
+   this's state squares array as the Square value
+   a. Value will either be 'X', '0', or null
+7. Pass down a function from Board to Square when clicked, which
+   calls the this.handleClick(i) function (what is this)
+8. Modify Square to include the onClick and value props passed
+   down from Board, and remove the constructor as it is no longer 
+   needed
+   a. Modify onClick so that it calls the prop onClick defined in 
+      Board
+   b. Change this.state.value to this.props.value so that it 
+      displays the value defined in Board
+   c. When a Square is clicked, the onClick listener in render() 
+      will call this.props.onClick() which is defined by the 
+      Board, which will then call the board's onClick function 
+      that calls handleClick(i) which hasn't been defined yet
+9. Define the handleClick function that takes in a value i and 
+   sets the value of the squares array 'i', then updates the 
+   squares array to the modified version
+   a. Square is a controlled component as it is fully controlled 
+      by the Board via passed in values/props
+   b. this.state.squares.slice() creates a copy of the squares 
+      array to modify instead of modifying the existing array
+   c. Immutability: not directly modifying existing data, allows 
+      for previous versions to be stored/reviewed
+10.Change Square to be a function component as it only contains 
+   the render method and doesn't have its own state
+   a. Write a function that takes props as input and returns what 
+      should be rendered
+   b. Remove all "this" from the function (this.props => props)
+11.Implement turns by adding an xIsNext boolean to the state 
+   property that flips with each turn
+   a. Change the handleClick function to set xIsNext to the 
+      opposite sign and the squares array value correspondingly
+   b. Modify the Board's render for the status so it displays 
+      which player has the next turn
+12.Add the calculateWinner helper function that checks each 
+   possible winning combination and returns a winner is exists
+   a. Call the calculateWinner function in Board's render function 
+      to check if a winner exists, and replace the status 
+      declaration with the winner if necessary
+   b. Modify handleClick to ignore clicks if someone has won or a 
+      Square is already filled
+13.Write a constructor for the Game component that initializes its 
+   state with the history prop (square arrays) and the xIsNext 
+   prop
+14.Have the Board component receive squares and onClick props from 
+   the Game (similar to what we did with having Squares receive 
+   props from Board)
+   a. Delete the constructor in Board and modify renderSquare to 
+      include "this.props.squares[i]" and "this.props.onClick"
+15.Update Game's render to include the status message and winner 
+   code from before as well as the new history
+   a. Update the return Board to include squares and onClick, and 
+      the game-info to include "status"
+16.Move the handleClick method from Board to Game, and update so 
+   that it concatenates new history entries into history
+   a. Use concat() method so that the original array is not 
+      mutated
+   b. Move the squares: squares update into the history
+17.Create the moves object that maps ?? (step and move) to a 
+   description of the move number and a button that jumps to that 
+   move in history when clicked
+   a. add <ol>moves</ol> to the className in Game's return 
+      statement but idk what that does
+18.Add the move key to Games' render's moves' return statement as 
+   dynamic (changing) lists need them in React to decide which 
+   components need to update/be added/be removed
+19.Add stepNumber to the Game component's state that will update 
+   when jumpTo is called (when user decides to time travel)
+   a. If the stepNumber is changed to an even number, set xIsNext 
+      to be true (X goes on each even turn as turns start from 0)
+   b. stepNumber will be initialized to 0 in the constructor
+20.Define the jumpTo method in Game that updates the stepNumber 
+   and sets xIsNext to true if stepNumber becomes even
+21.In handleClick (runs each time a square is clicked), change 
+   history so that it equals the slice from 0 to stepNumber+1 so 
+   it can update as time travel is called and deletes future 
+   history
+   a. In handleClick's setState call, set stepNumber to update to 
+      history.length each time
+22. Change the current that's displayed in Game's render method 
+    show the stepNumber rather than just history - 1
