@@ -1,0 +1,13 @@
+Exercise 2.1:
+- (expt 2 (expt 3 4 )) C-j computes 2^3^4
+- C-h k C-h k: runs the command describe-key, opens a new tab that contains a description of this keybinding
+- M-SPC: runs the command just-one-space that deletes all spaces and tabs around point, leaving one space (or N spaces if &optional N is used)
+    - source code located in 'simple.el'
+
+Exercise 2.2:
+- what-line prints out the current line that your cursor is located on
+
+Homework: Python Scripting
+- randline.py returns an error when invoked with Python 3 due to syntax changes in error reporting
+    - "except IOError as (errno, strerror)"
+- shuf.py works with both Python 2 and Python 3 because Python 3 mainly added additional functions to the previous language 
