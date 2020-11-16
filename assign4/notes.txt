@@ -1,0 +1,30 @@
+CS 97 Assignment 4. Basic change management
+11/14/2020
+
+Laboratory A: Exploring a linear development history
+1. Use Github two-dot diff comparison to compare most recent commits
+   (git log): https://github.com/eggert/tz/compare/a47ef9c..48e68f
+2. Use Github compare tags function to compare between 2020c and 2020d:
+   https://github.com/eggert/tz/compare/2020c...2020d
+3. Use git clone https://github.com/eggert/tz
+4. Save the hash codes for the current and previous commits to variables
+   by using "git rev-parse --short HEAD" and "git rev-parse --short HEAD~1"
+   Run git diff on the two hash codes and print to standard output.
+5. Run git diff on the first and second arguments ($1 and $2) which should
+   be the tags (releases). Print to standard output with cat.
+6. Multiple steps to writing this shell script:
+   1. Use grep to filter out all lines that don't start with "Date"
+   2. Use cut to select the 9th field (only timezone)
+   3. Sort the resulting timezones in ascending order
+   4. Use uniq -c to only display unique lines and their occurances
+   5. Use awk to reverse the order of fields (columns) on each line and
+      print out to standard output.
+7. Multiple steps to this investigation:
+  1. Use git grep to locate the sentence within the file northamerica at 
+     line 890:
+     git grep -n 'Even newspaper reports present contradictory information.'
+  2. Use git blame to traverse the history of line 890 within northamerica:
+     git blame -L 890 northamerica
+  3. Found that the sentence was added on 2013-09-02 at 08:09:06 -0700 by
+     Paul Eggert (commit c8f960ec). The full commit includes:
+     'and wrote "Even newspaper reports present contradictory information."'

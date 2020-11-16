@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+# $1 = first argument (2020c)
+# $2 = second argument (2020d)
+
+git diff $1 $2 | cat

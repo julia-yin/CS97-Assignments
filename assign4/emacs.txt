@@ -1,0 +1,18 @@
+CS97 Assignment 4 Laboratory B
+
+1. This mergepoint shows a merge from origin/emacs-27 by Glenn Morris
+   on 2020-10-17 at 09:48:54. The topmost window displays the history
+   of merges and commits on emacs-27 and other branches. The left-bottom
+   window displays information about this merge including author, parent,
+   child, branches, and comments. The comment on this merge states
+   "Improve documentation of 'Info-hide-note...". The right-bottom window
+   displays comments but is currently empty.
+2. See emacs-graph.pdf
+3. Running git branch on the ~eggert/src/gnu/emacs repository lists out
+   a large number of different branches, with the current branch pointing
+   at master. Running git branch on the newly cloned GNU Emacs repository
+   only lists out one branch that is the current branch: master.
+   Running git log on the ~eggert/src/gnu/emacs repostory shows that the
+   latest commit was Tue Nov 3 by Eli Zaretskii, while running git log
+   on the cloned repository shows that the latest commit was on Sun Nov 15
+   by Juri Linkov.

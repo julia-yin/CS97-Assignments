@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+CUR=$(git rev-parse --short HEAD)
+PREV=$(git rev-parse --short HEAD~1)
+
+git diff $PREV $CUR | cat
