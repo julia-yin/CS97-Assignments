@@ -8,7 +8,11 @@ CS97 Assignment 4 Laboratory A: Problem 7
 3. Found that the sentence was added on 2013-09-02 at 08:09:06 -0700 by
    Paul Eggert (commit c8f960ec). The full commit includes:
    'and wrote "Even newspaper reports present contradictory information."'
-
+4. Used git log -S to find that the first (original) commit containing the
+   above sentence was actually by Arthur David Olson on Thu Dec 21 11:43:42
+   1995 -0500 (commit c12b432).
+ 
 Results of Investigation:
-Sentence is located in northamerica, added by Paul Eggert on 2013-09-02
-at 08:09:06 -0700 with commit c8f960ec.
+Sentence is located in northamerica, added by Arthur David Olson on 1995-12-21
+with commit c12b432. This line was edited by Paul Eggert on 2013-09-02 with
+commit c8f960ec.
