@@ -1,0 +1,1 @@
+xcompile!echo '"test" | ./a.out > hello-a1 2> hello-a2!./a.out > hello-b1 2> hello-b2!./oa.out < /etc/passwd > hello-c1 2> hello-c2!./a.out < /etc/passwd > /dev/full 2> hello-d2

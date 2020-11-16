@@ -1,0 +1,37 @@
+Lab 1.5 Answers:
+1. mv: /usr/local/cs/bin/mv
+   sh: /usr/bin/sh
+2. ar: create, modify, and extract from archives
+   pr: convert text files for printing
+   tr: translate or delete characters 
+3. emacs is executed (/usr/local/cs/bin/emacs)
+4. /urs/bin/gcc: Version 4.8.5 (found using command /usr/bin/gcc -v)
+   gcc: Version 10.2.0         (found using command gcc -v)
+5. u+sx: the user's (u) access to the file will be changed by granting permission to set user/group ID on execution (s) and execute/search for directories (x)
+   o-w: users not in the file's group will have their write (w) permissions removed
+6. use command find /usr/local/cs -type d -mtime -28 to find all directories modified within the last four weeks
+7. use command "find /usr/local/cs -type l -mtime -28" to find
+   total = 454 symbolic links
+8. "ls /usr/lib64/ -lt" to find and sort all files within this directory
+   oldest = root, Dec 28,2013
+9. locale command gets its data from /usr/lib/locale/locale-archive
+10. downcase-dwim, downcase-region, downcase-word
+    used C-h a "downcase" to search
+11. they run the self-insert-command
+12. Running C-h c KEYSTROKES shows that C-g runs keyboard-quit
+13. The yank function is essentially the cut function where it "cuts" a portion of text that is stored and can be pasted elsewhere. C-k is cut and C-y is paste.
+14. running C-x d /usr/bin to find ls: " -rwxr-xr-x    1 root root      117680 Mar 15  2019 ls"
+    ls -l displays all files within current directory along with a bunch of information including last modified date and time, owner, and edit permissions
+
+Lab 1.6:
+<   = redirect standard input
+<&- = close standard input
+1>  = redirect standard output
+2>  = redirect standard error
+
+Homework: Scripting in the Shell
+tr -cs 'A-Za-z' '[\n*]' = translate all words containing letters A-Z and a-z, words end when encountering character not included in set 1, printing one word per line
+sort -u = sort a text file by line and suppress all lines that are repeats
+comm -23 - sorted.words = compare the input file (cat $1) against sorted.words, and only print out words that are unique to input file
+    -2 = suppress printing of lines only in file2
+    -3 = suppress printing of lines found in both files
