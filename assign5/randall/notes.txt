@@ -1,0 +1,14 @@
+1. Implemented make check in the Makefile by checking that the output of
+   ./randall 100 is of length 100 bytes, and printing out an error message
+   if the output of randall is not equal to the correct size.
+2. Split output.c and output.h from the original randall.c file to include
+   the writebytes function. Placed function prototype and header guards
+   into output.h as well as the required include files. Tested by linking
+   randall.c and output.c using gcc to see if randall would execute correctly.
+3. Split rand64-hw.c rand64-hw.h from randall.c to include the cpuid struct
+   and the cpuid, rdrand_supported, hardware_rand64_init, hardware_rand64,
+   and hardware_rand64_fini functions.
+4. Split rand64-sw.c rand64-sw.h from randall.c to include urandstream and
+   the software_rand64_init, software_rand64, and software_rand64_fini
+   functions.
+5. Split options.c options.h from randall.c to include 
