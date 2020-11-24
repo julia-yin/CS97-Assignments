@@ -34,13 +34,13 @@ randall: *.c
 	$(CC) $(CFLAGS) *.c -o $@
 
 assignment: randall-assignment.$(TAREXT)
-assignment-files = COPYING Makefile randall.c
+assignment-files = COPYING Makefile *.c *.h
 randall-assignment.$(TAREXT): $(assignment-files)
 	$(TAR) $(TARFLAGS) -cf $@ $(assignment-files)
 
 submission: randall-submission.$(TAREXT)
 submission-files = $(assignment-files) \
-  notes.txt # More files should be listed here, as needed.
+  notes.txt test.sh # More files should be listed here, as needed.
 randall-submission.$(TAREXT): $(submission-files)
 	$(TAR) $(TARFLAGS) -cf $@ $(submission-files)
 
