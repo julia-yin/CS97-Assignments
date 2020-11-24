@@ -1,11 +1,6 @@
 #!/bin/sh
 
-#if [ `./randall 100 | wc -c` -eq 100 ]; \
-#	then echo "test passed -> ./randall 100"; \
-#	else echo "test failed -> ./randall 100"; \
-#fi;
-
-num_tests=(0 1 7 100 1000 1024 133562368)
+num_tests=(0 7 100 1025 133562368)
 
 # Test 1: basic case (./randall NUMBYTES)
 for N in "${num_tests[@]}";
