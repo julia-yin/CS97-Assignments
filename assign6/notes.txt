@@ -1,0 +1,6 @@
+CS 97 Fall 2020 Assignment 6
+Git Repository Organization: Topologically Ordered Commits
+
+1. os.path: Python functions on pathnames
+     .abspath(os.curdir): returns path to current directory
+   os. 
