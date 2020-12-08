@@ -1,6 +1,32 @@
 CS 97 Fall 2020 Assignment 6
 Git Repository Organization: Topologically Ordered Commits
 
-1. os.path: Python functions on pathnames
-     .abspath(os.curdir): returns path to current directory
-   os. 
+Bugs Encountered:
+
+* Assigning a dictionary to another dictionary name DOES NOT MAKE A COPY
+  OF THE PRE-EXISTING DICTIONARY! Had to call build_commits twice to
+  create a copy of the commits_dict dictionary to modify within the
+  topo_sort function.
+
+* Checking for hashes in a dictionary: check that branches_dict[hash]
+  exists, not branches[hash] :,(
+
+* Lists can be iterated through by doing print(*list, sep=' ', end='')
+
+* Always check for boundaries before trying to check the previous or
+  next items in a list!! Check that i+1 < len(list) before checking
+  the next item, and that i > 0 before checking the previous item.
+
+* 'NoneType' is not iterable: likely means that the data structure being
+  iterated through is empty.
+
+* Double check data types (list [], set(), dict(), etc.) when passing
+  them in as parameters into a function to make sure they match the
+  function definition.
+
+* os.path (pathlib) has a lot of functions that I didn't get to look
+  into as much for this project, but was very useful in finding paths
+  to various files within directories.
+    * walk: returns the root path and all files within all subdirectories
+    * abspath: returns absolute path to specified directory/file
+    * join: joins together two paths
