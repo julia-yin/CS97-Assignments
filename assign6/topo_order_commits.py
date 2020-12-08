@@ -137,13 +137,12 @@ def find_git_dir():
         for d in os.listdir(path):
             if (d == ".git"):
                 # Return path to the .git folder
-                return os.path.abspath(os.path.join(path, d))
+                return os.path.realpath(os.path.join(path, d))
         if os.path.dirname(path) == path:
             # At root, exit with error message
             sys.exit("Not inside a Git repository")
         # Not at root, continue search with parent directory
-        path = os.path.join(path, os.pardir)
-
+        path = os.path.realpath(os.path.join(path, os.pardir))
 
 class CommitNode:
     def __init__(self, commit_hash):
