@@ -22,12 +22,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-//#include <cpuid.h>
 #include <errno.h>
-//#include <immintrin.h>
 #include <limits.h>
 #include <stdbool.h>
-//#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -104,13 +101,14 @@ main (int argc, char **argv)
       }
     while (0 < nbytes);
   } else {
-    /* Output N KiB bytes at a time, using the write system call */
-    // Given nbytes, N
-    // 1. malloc buffer of N * 1024 bytes
-    // 2. For loop: repeat until nbytes == 0
-    //   a. populate buffer with random values by using rand 64 ()
-    //   b. write the buffer's contents to standard output (?)
-    //   c. subtract N KiB from nbytes
+    /* Output N KiB bytes at a time, using the write system call
+       Given nbytes, N
+       1. malloc buffer of N * 1024 bytes
+       2. For loop: repeat until nbytes == 0
+         a. populate buffer with random values by using rand 64 ()
+         b. write the buffer's contents to standard output (?)
+         c. subtract N KiB from nbytes
+    */
  
     int buffersize = atoi(output) * 1024;
     int allocate_size = 0;
