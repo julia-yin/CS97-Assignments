@@ -1,4 +1,4 @@
-# cs97-assignments
+# CS97-Assignments
 Assignments for UCLA CS 97 (Software Construction Projects), Fall 2020.
 
 Assignment 1: Editing and scripting
